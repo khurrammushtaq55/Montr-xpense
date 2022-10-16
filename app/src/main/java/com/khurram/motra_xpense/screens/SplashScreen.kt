@@ -32,7 +32,6 @@ fun SplashScreen(navController: NavHostController) {
             composition = composition,
             progress = { logoAnimationState.progress }
         )
-        Text(text = "montra", style = TextStyle(color = Color.Black ))
         if (logoAnimationState.isAtEnd && logoAnimationState.isPlaying) {
             navController.navigate(Screen.Home.route)
         }

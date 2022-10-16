@@ -26,7 +26,7 @@ fun BoldButton(btnText: String, doClick: Unit?) {
         },
         Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(10.dp),
-        contentPadding = PaddingValues(20.dp),
+        contentPadding = PaddingValues(15.dp),
         elevation = ButtonDefaults.elevation(
             defaultElevation = 10.dp,
             pressedElevation = 15.dp,
@@ -45,11 +45,9 @@ fun TransparentButton(btnText: String, doClick: Unit?) {
             doClick
         },
         Modifier.fillMaxWidth(),
-        colors = ButtonDefaults.buttonColors(
-            backgroundColor = buttonTrColor,
-            contentColor = themeColor,
-        ),
-        contentPadding = PaddingValues(20.dp),
+        elevation=null,
+        colors = ButtonDefaults.buttonColors(backgroundColor = buttonTrColor),
+        contentPadding = PaddingValues(15.dp),
        ) {
         Text(text = btnText)
     }
@@ -58,5 +56,5 @@ fun TransparentButton(btnText: String, doClick: Unit?) {
 @Preview
 @Composable
 fun tstButton() {
-    BoldButton(btnText = "khurram", doClick = null)
+    TransparentButton(btnText = "khurram", doClick = null)
 }
