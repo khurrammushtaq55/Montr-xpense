@@ -20,6 +20,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.khurram.motra_xpense.R
 import com.khurram.motra_xpense.ui.theme.Green100
+import com.khurram.motra_xpense.ui.theme.Red100
 
 @Composable
 fun IncomeExpenseBox(type:String,amount:String,bgColor:Color,drawable:Int) {
@@ -27,7 +28,7 @@ fun IncomeExpenseBox(type:String,amount:String,bgColor:Color,drawable:Int) {
 
     Card(
         modifier = Modifier
-            .width(165.dp).wrapContentHeight()
+            .width(160.dp).wrapContentHeight()
             , shape = CircleShape.copy(CornerSize(28.dp))
 
     ) {
@@ -60,8 +61,8 @@ fun IncomeExpenseBox(type:String,amount:String,bgColor:Color,drawable:Int) {
                     text = amount,
                     color = Color.White,
                     style = TextStyle(
-                        fontSize = 22.sp
-                    )
+                        fontSize = 22.sp,
+                    ), maxLines = 1,
                 )
             }
         }
@@ -72,5 +73,5 @@ fun IncomeExpenseBox(type:String,amount:String,bgColor:Color,drawable:Int) {
 @Preview
 @Composable
 fun test() {
-//    IncomeExpenseBox()
+    IncomeExpenseBox("Expense","$768458", Red100,R.drawable.ic_expense)
 }

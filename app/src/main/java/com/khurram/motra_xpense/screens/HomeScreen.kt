@@ -9,7 +9,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.semantics.Role.*
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
@@ -17,7 +16,7 @@ import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
 import com.khurram.motra_xpense.R
-import com.khurram.motra_xpense.routes.Screen
+import com.khurram.motra_xpense.routes.Screens
 import com.khurram.motra_xpense.ui.helper.BoldButton
 import com.khurram.motra_xpense.ui.helper.DotsIndicator
 import com.khurram.motra_xpense.ui.helper.HorizontalPagerContent
@@ -109,7 +108,7 @@ fun HorizontalPagerScreen(navController: NavHostController) {
 
         Column(Modifier.padding(20.dp)) {
             Spacer(modifier = Modifier.height(40.dp))
-            BoldButton("Sign Up"){navController.navigate(Screen.Mail.route)}
+            BoldButton("Sign Up"){navController.navigate(Screens.Mail.route)}
             Spacer(modifier = Modifier.height(10.dp))
             TransparentButton("Log In", ){}
             Spacer(modifier = Modifier.height(30.dp))
