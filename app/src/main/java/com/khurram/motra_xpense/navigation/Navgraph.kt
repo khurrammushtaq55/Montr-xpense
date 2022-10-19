@@ -6,6 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.khurram.motra_xpense.routes.Screen
 import com.khurram.motra_xpense.screens.HomeScreen
+import com.khurram.motra_xpense.screens.MailScreen
 import com.khurram.motra_xpense.screens.SplashScreen
 
     @Composable
@@ -21,6 +22,9 @@ import com.khurram.motra_xpense.screens.SplashScreen
             }
             composable(route = Screen.Home.route) {
                 HomeScreen(navController = navController)
+            }
+            composable(route = Screen.Mail.route) {
+                MailScreen(navController = navController)
             }
         }
 

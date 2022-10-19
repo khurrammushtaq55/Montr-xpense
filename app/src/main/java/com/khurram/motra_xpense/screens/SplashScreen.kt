@@ -15,14 +15,14 @@ import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.khurram.motra_xpense.R
 import com.khurram.motra_xpense.routes.Screen
-import com.khurram.motra_xpense.ui.theme.themeColor
+import com.khurram.motra_xpense.ui.theme.Violet100
 
 @Composable
 fun SplashScreen(navController: NavHostController) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(themeColor)
+            .background(Violet100)
     ) {
         val composition by rememberLottieComposition(LottieCompositionSpec.RawRes(R.raw.logo))
         val logoAnimationState =
