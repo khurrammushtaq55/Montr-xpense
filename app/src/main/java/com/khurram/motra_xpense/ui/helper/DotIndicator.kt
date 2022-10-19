@@ -15,7 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.rememberNavController
 import com.khurram.motra_xpense.ui.theme.MotraxpenseTheme
-import com.khurram.motra_xpense.ui.theme.themeColor
+import com.khurram.motra_xpense.ui.theme.Violet100
 
 @Composable
 fun DotsIndicator(
@@ -70,7 +70,7 @@ fun DefaultPreview() {
 //        setNavGraph(navController = navController)
 //        HomeScreen(navController = navController)
         DotsIndicator(
-            totalDots = 7, selectedIndex = 1, selectedColor = themeColor,
+            totalDots = 7, selectedIndex = 1, selectedColor = Violet100 ,
             unSelectedColor = Color.Gray
         )
     }
