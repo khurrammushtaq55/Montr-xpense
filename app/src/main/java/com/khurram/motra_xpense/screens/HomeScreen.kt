@@ -5,35 +5,30 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.semantics.Role.*
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.rememberNavController
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.rememberPagerState
 import com.khurram.motra_xpense.R
+import com.khurram.motra_xpense.routes.Screens
 import com.khurram.motra_xpense.ui.helper.BoldButton
 import com.khurram.motra_xpense.ui.helper.DotsIndicator
 import com.khurram.motra_xpense.ui.helper.HorizontalPagerContent
 import com.khurram.motra_xpense.ui.helper.TransparentButton
-import com.khurram.motra_xpense.ui.theme.MotraxpenseTheme
-import com.khurram.motra_xpense.ui.theme.themeColor
+import com.khurram.motra_xpense.ui.theme.Violet100
 
 
 @Composable
 fun HomeScreen(navController: NavHostController) {
 
 
-    HorizontalPagerScreen()
+    HorizontalPagerScreen(navController)
     Spacer(modifier = Modifier.padding(4.dp))
 
 
@@ -56,11 +51,8 @@ fun createItems() = listOf(
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable
-fun HorizontalPagerScreen() {
-    val configuration = LocalConfiguration.current
+fun HorizontalPagerScreen(navController: NavHostController) {
 
-    val screenHeight = configuration.screenHeightDp.dp
-    val screenWidth = configuration.screenWidthDp.dp
     Column(
         modifier = Modifier
             .wrapContentSize()
@@ -109,16 +101,16 @@ fun HorizontalPagerScreen() {
             DotsIndicator(
                 totalDots = 3,
                 selectedIndex = pagerState.currentPage,
-                selectedColor = themeColor,
+                selectedColor = Violet100,
                 unSelectedColor = Color.LightGray,
             )
         }
 
         Column(Modifier.padding(20.dp)) {
             Spacer(modifier = Modifier.height(40.dp))
-            BoldButton("Sign Up", null)
+            BoldButton("Sign Up"){navController.navigate(Screens.Mail.route)}
             Spacer(modifier = Modifier.height(10.dp))
-            TransparentButton("Log In", null)
+            TransparentButton("Log In", ){}
             Spacer(modifier = Modifier.height(30.dp))
         }
 
