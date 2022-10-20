@@ -1,114 +1,112 @@
+/*
 package com.khurram.motra_xpense.ui.helper
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.focus.FocusRequester
-import androidx.compose.ui.focus.focusRequester
-import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import androidx.compose.ui.unit.sp
+import androidx.compose.ui.zIndex
+import com.khurram.motra_xpense.R
 
-@Composable
-fun OtpCell(
-    modifier: Modifier,
-    value: String,
-    isCursorVisible: Boolean = false
-) {
-    val scope = rememberCoroutineScope()
-    val (cursorSymbol, setCursorSymbol) = remember { mutableStateOf("") }
 
-    LaunchedEffect(key1 = cursorSymbol, isCursorVisible) {
-        if (isCursorVisible) {
-            scope.launch {
-                delay(350)
-                setCursorSymbol(if (cursorSymbol.isEmpty()) "|" else "")
-            }
-        }
-    }
-
-    Box(
-        modifier = modifier
+class OTP() {
+    @Composable
+    fun PinInput(
+        modifier: Modifier = Modifier,
+        length: Int = 5,
+        value: String = "",
     ) {
-        Text(
-            text = if (isCursorVisible) cursorSymbol else value,
-            style = MaterialTheme.typography.body1,
-            modifier = Modifier.align(Alignment.Center)
-        )
-    }
-}
 
-@ExperimentalComposeUiApi
-@Composable
-fun PinInput(
-    modifier: Modifier = Modifier,
-    length: Int = 5,
-    value: String = "",
-    onValueChanged: (String) -> Unit
-) {
-    val focusRequester = remember { FocusRequester() }
-    val keyboard = LocalSoftwareKeyboardController.current
-    TextField(
-        value = value,
-        onValueChange = {
-            if (it.length <= length) {
-                if (it.all { c -> c in '0'..'9' }) {
-                    onValueChanged(it)
-                }
-                if (it.length >= length) {
-                    keyboard?.hide()
-                }
-            }
-        },
-        // Hide the text field
-        modifier = Modifier
-            .size(0.dp)
-            .focusRequester(focusRequester),
-        keyboardOptions = KeyboardOptions(
-            keyboardType = KeyboardType.Number
-        )
-    )
+        var maxDigits: Int = 6
+        var attemps by remember { mutableStateOf(0) }
+        var pin by remember { mutableStateOf("") }
+        var color by remember { mutableStateOf(Color.Blue) }
 
-    Row(
-        modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.Center
-    ) {
-        repeat(length) {
-            OtpCell(
-                modifier = modifier
-                    .size(width = 45.dp, height = 60.dp)
-                    .clip(MaterialTheme.shapes.large)
-                    .background(MaterialTheme.colors.surface)
-                    .clickable {
-                        focusRequester.requestFocus()
-                        keyboard?.show()
-                    },
-                value = value.getOrNull(it)?.toString() ?: "",
-                isCursorVisible = value.length == it
+        Box(contentAlignment = Alignment.Center) {
+            Box(
+                Modifier
+                    .size(100.dp)
             )
-            Spacer(modifier = Modifier.size(8.dp))
+            {
+                Row() {
+                    repeat(maxDigits) {
+                        getView(it, pin, color)
+                    }
+                }
+            }
+
+            Box(
+                Modifier
+                    .size(100.dp)
+            )
+            {
+
+                TextField(
+                    value = pin,
+                    onValueChange = {
+                        if (pin.count() > maxDigits) {
+                            pin = (pin.substring(0, maxDigits))
+                        } else if (pin.count() == maxDigits) {
+                            validate(pin, value, color)
+                        } else {
+                            color = Color.White
+                        }
+
+                    },
+                    keyboardOptions = KeyboardOptions(
+                        keyboardType = KeyboardType.Number
+                    ), modifier = Modifier.
+                )
+            }
         }
     }
+
+    @Composable
+    fun getView(index: Int, pin: String, colorr: Color) {
+
+        if (index >= pin.count()) {
+            Image(
+                painter = painterResource(id = R.drawable.ic_pininput),
+                contentDescription = "dot",
+            )
+        } else {
+            Text(text = pin[index].toString(), fontSize = 15.sp, color = colorr)
+        }
+
+    }
+
+    private fun validate(pin: String, validPin: String, color: Color) {
+        */
+/*  if (pin != validPin) {
+              color = Color.Red
+          } else {
+              color = Color.Green
+          }*//*
+
+    }
+
+
+
+    @Preview
+    @Composable
+    fun tstOTP() {
+
+        PinInput()
+    }
+
 }
 
-
-@OptIn(ExperimentalComposeUiApi::class)
-@Preview
-@Composable
-fun tstOTP() {
-    PinInput(modifier = Modifier,5,"", onValueChanged = {kh->
-
-    })
-}
+*/
