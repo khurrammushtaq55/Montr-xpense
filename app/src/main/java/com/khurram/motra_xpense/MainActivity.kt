@@ -6,7 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
-import com.khurram.motra_xpense.navigation.setNavGraph
+import com.khurram.motra_xpense.navigation.SetNavGraph
 import com.khurram.motra_xpense.ui.theme.MotraxpenseTheme
 
 class MainActivity : ComponentActivity() {
@@ -15,7 +15,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             MotraxpenseTheme() {
                 val navController = rememberNavController()
-                setNavGraph(navController = navController)
+                SetNavGraph(navController = navController)
 
             }
         }

@@ -19,6 +19,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.khurram.motra_xpense.R
+import com.khurram.motra_xpense.routes.Screens
 import com.khurram.motra_xpense.ui.helper.BoldButton
 
 
@@ -70,6 +71,7 @@ fun MailScreen(navController: NavHostController) {
 
         Box(modifier = Modifier.padding(20.dp)) {
             BoldButton(btnText = "Back to Login") {
+                navController.navigate(Screens.SignUp.route)
             }
         }
     }

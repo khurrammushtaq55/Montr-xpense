@@ -7,10 +7,11 @@ import androidx.navigation.compose.composable
 import com.khurram.motra_xpense.routes.Screens
 import com.khurram.motra_xpense.screens.HomeScreen
 import com.khurram.motra_xpense.screens.MailScreen
+import com.khurram.motra_xpense.screens.SignUpScreen
 import com.khurram.motra_xpense.screens.SplashScreen
 
     @Composable
-    fun setNavGraph(navController: NavHostController)
+    fun SetNavGraph(navController: NavHostController)
     {
 
         NavHost(
@@ -25,6 +26,9 @@ import com.khurram.motra_xpense.screens.SplashScreen
             }
             composable(route = Screens.Mail.route) {
                 MailScreen(navController = navController)
+            }
+            composable(route = Screens.SignUp.route) {
+                SignUpScreen(navController = navController)
             }
         }
 

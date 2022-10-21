@@ -27,8 +27,8 @@ fun BoldButton(btnText: String, doClick:()-> Unit) {
         colors = ButtonDefaults.buttonColors(backgroundColor = Color(0xff7f3dff)),
         modifier = Modifier
             .fillMaxWidth()
-            .height(height = 70.dp)
-            .padding(all = 10.dp)
+            .height(height = 56.dp)
+//            .padding(all = 10.dp)
     ) {
         Text(
             text = btnText,
@@ -70,16 +70,13 @@ fun GoogleButton(btnText: String, doClick:()-> Unit) {
         colors = ButtonDefaults.buttonColors(backgroundColor = Color.Transparent),
         border = BorderStroke(1.dp, Color(0xfff1f1fa)),
         modifier = Modifier
-            .width(width = 343.dp)
-            .height(height = 56.dp)
+            .fillMaxWidth()
+            .height(height = 70.dp)
             .padding(all = 8.dp)
     ) {
         Image(
             painterResource(id = R.drawable.ic_google),
             contentDescription = "drawable icons",
-            colorFilter = ColorFilter.tint(Color(0xffffc107)),
-            modifier = Modifier
-                .height(height = 32.dp)
         )
         Spacer(modifier = Modifier.width(5.dp))
         Text(

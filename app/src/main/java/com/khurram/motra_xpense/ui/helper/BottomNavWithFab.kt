@@ -23,7 +23,6 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.khurram.motra_xpense.navigation.bottomItems
-import com.khurram.motra_xpense.navigation.items
 import com.khurram.motra_xpense.routes.BottomScreens
 import com.khurram.motra_xpense.ui.theme.Violet100
 
@@ -104,7 +103,7 @@ fun BottomNav(navController: NavController) {
         //backgroundColor = Color.White,
         elevation = 0.dp
     ) {
-        bottomItems.forEach {
+      /*  bottomItems.forEach {
             BottomNavigationItem(
                 icon = {
                     it.icon?.let {
@@ -147,6 +146,6 @@ fun BottomNav(navController: NavController) {
                     }
                 }
             )
-        }
+        }*/
     }
 }

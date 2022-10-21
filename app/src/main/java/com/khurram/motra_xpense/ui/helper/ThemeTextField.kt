@@ -15,7 +15,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.khurram.motra_xpense.ui.theme.borderColor
+import com.khurram.motra_xpense.ui.theme.Dark100
 
 @Composable
 fun ThemeTextField(textFieldValue: String, label: String, drawable: Int? = null) {
@@ -37,11 +37,15 @@ fun ThemeTextField(textFieldValue: String, label: String, drawable: Int? = null)
             mutableState.value = newValue
         },
         modifier = Modifier
-            .border(1.dp, borderColor, RoundedCornerShape(16.dp))
+            .border(1.dp, Color.Gray, RoundedCornerShape(16.dp))
             .fillMaxWidth(),
         colors = TextFieldDefaults.textFieldColors(
-            backgroundColor = Color.White
-        )
+            textColor = Dark100,
+            disabledTextColor = Color.Transparent,
+            backgroundColor = Color.White,
+            focusedIndicatorColor = Color.Transparent,
+            unfocusedIndicatorColor = Color.Transparent,
+            disabledIndicatorColor = Color.Transparent,)
     )
 }
 
